@@ -1,4 +1,4 @@
-package AssignmentDay2;
+package Assignment_Day2;
 
 /**
  * @author Manish Goyal
