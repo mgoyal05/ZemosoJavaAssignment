@@ -1,4 +1,4 @@
-package Assignment_Day2;
+package Assignment_Day2.VampireNumber;
 import java.util.*;
 
 /**
