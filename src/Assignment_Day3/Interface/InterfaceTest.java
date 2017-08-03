@@ -34,7 +34,7 @@ public class InterfaceTest {
      * @param CI
      */
     public void methodFour(CombinedInterface CI){
-        CI.combinedInterfaceMethod();
+        CI.combinedInterfaceMethod(); 
     }
 
     public static void main(String[] args){
