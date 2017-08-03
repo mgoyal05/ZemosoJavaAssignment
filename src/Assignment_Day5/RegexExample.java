@@ -13,6 +13,6 @@ public class RegexExample {
           '*' Matches zero or more occurrences of this pattern.
           '\\.' ensures that it should always end with period
          */
-        System.out.println("A Sample sentenceto show application of regex.".matches("[A-Z].*\\."));
+        System.out.println("A Sample sentence to show application of regex.".matches("[A-Z].*\\."));
     }
 }
