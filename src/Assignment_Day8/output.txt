@@ -1,0 +1,10 @@
+hare krsna
+Character   Occurence
+ 		1
+a		2
+e		1
+h		1
+k		1
+n		1
+r		2
+s		1
