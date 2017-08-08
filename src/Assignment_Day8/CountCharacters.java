@@ -18,7 +18,7 @@ public class CountCharacters {
      * @return Array of characters found in the given file
      * @throws IOException
      */
-    public static char[] fileread(FileInputStream file) throws IOException {
+    public static char[] fileRead(FileInputStream file) throws IOException {
 
         //Lets an application read primitive Java data types from input stream 'file'.
         DataInputStream dis = new DataInputStream(file);
@@ -63,7 +63,7 @@ public class CountCharacters {
             //Creates a FileInputStream by opening a connection to file (Obtained from args[0]) and reads byte-oriented Data.
             FileInputStream file = new FileInputStream(args[0]);
 
-            char[] charArray = fileread(file);
+            char[] charArray = fileRead(file);
 
             Map<Character, Integer> charCounter = createMap(charArray);
 
