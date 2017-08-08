@@ -30,7 +30,8 @@ public class CountCharacters {
         while ((Contents = br.readLine()) != null) {
             str += Contents;
         }
-
+        dis.close();
+        br.close();
         //Creates Array of characters
         return str.toCharArray();
     }
@@ -38,7 +39,6 @@ public class CountCharacters {
     /**
      * Creates Map with Key as 'Character' and value as 'Integer to store no. of times each
      * key comes in the sentence. TreeMap is used to store the keys in sorted order.
-     *
      * @param charArray A Array of Characters obtained from the Input text file.
      * @return A Sorted Map with Characters and their respective Occurences.
      */
@@ -64,6 +64,7 @@ public class CountCharacters {
             FileInputStream file = new FileInputStream(args[0]);
 
             char[] charArray = fileRead(file);
+            file.close();
 
             Map<Character, Integer> charCounter = createMap(charArray);
 
