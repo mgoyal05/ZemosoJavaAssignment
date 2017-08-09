@@ -23,16 +23,20 @@ public class FileList {
 
         Scanner sc = new Scanner(System.in);                    //Scanner to take input
         String inputRegex;                                      //String for Regular Expression
+
+        //A String Builder to store the path of each file in string format
+        StringBuilder list = new StringBuilder();
         System.out.println("Please Enter regular expression(or press enter to print All)");
 
-        //This loop will continue until user types exit in the command window to exit
+        //This loop will continue to take input until user types exit in the command window
         while (!(inputRegex = sc.nextLine()).equals("exit")) {
-            File[] path = new File("/home/zemoso").listFiles();
 
-            StringBuilder list = new StringBuilder();
+            //An Array of file to store absolute path of each file or folder
+            File[] path = new File("/home/zemoso").listFiles();
 
             //Enhanced for loop for each File in the path array
             for (File file : path) {
+
                 //It will run if the absolute file path matches with the inputRegex or user has hit enter
                 if (match(file.getAbsolutePath(), inputRegex) || inputRegex.length() == 0) {
                     list.append(file.getAbsolutePath() + "\n");
