@@ -2,27 +2,23 @@ package Assignment_Day2.ArrayOfObjectReferences;
 
 /**
  * @author Manish Goyal
- * ArrayOfObjectReferences class is to create an array of object which are not yet initialised
+ * A class which creates an array of object which are not initialised
  */
 public class ArrayOfObjectReferences {
 
-    //Two instance variables name and age are initialised
-    private String name;
-    private int age;
+    //Default constructor
+    ArrayOfObjectReferences() {
+        System.out.println("An Example to show when object is initialised");
+    }
 
-    //A constructor with argument string for field name and print the name on the screen
+    //A constructor with a string aargument and print the same on the screen
     ArrayOfObjectReferences(String sampleStr){
         System.out.println(sampleStr);
-        this.name = sampleStr;
-        this.age = 18;
     }
 
     public static void main(String [] args){
 
-        /**
-         * A array of 10 elements of this class are created but as they are not initialised
-         * therefore the constructor is not called and nothing gets printed on the screen
-         */
+        //As class is not initialised so its constructors is not called and hence nothing gets printed
         ArrayOfObjectReferences[] arrayOfClass = new ArrayOfObjectReferences[10];
     }
 }

@@ -2,47 +2,45 @@ package Assignment_Day2.ConstructorChaining;
 
 /**
  * @author Manish Goyal
- * A StudentData class is a example to show the concept of Calling a constructor from
- * the another constructor of same class which is also known as <b>Constructor chaining.</b>
+ * To show the concept of Calling a constructor from the another constructor of same class which is
+ * also known as <b>Constructor chaining.</b>
  */
 public class ConstructorChaining {
 
-    //Initialising three variables required for Student Data
+    //Initialising two variables required for Student Data
     private int stuID;
     private String stuName;
-    private int stuAge;
 
-    //First constructor with integer argument for StuID and default values for other variables
+    /**
+     * Overloaded constructor calling Second constructor by using keyword this() which must always be
+     * the first statement.
+     * @param ID  A integer argument to declare StudID
+     */
     public ConstructorChaining(int ID) {
-        stuID = ID;
-        stuName = "NewStudent";             //Default Name
-        stuAge = 18;                        //Minimum age
+        this(ID,"NewStudent");                       //Default Name as "NewStudent"
     }
 
     /**
-     * Second Constructor which is calling the first one by using the concept of 'Constructor
-     * chaining'. In order to call the first constructor this() must always be the first statement
-     * otherwise compiler will show error
-     * @param num1 A integer argument to declare StudID
+     * Second Overloaded constructor with 2 arguments
+     * @param ID A integer argument to declare StudID
      * @param str  A String argument to declare name of the student
-     * @param num2 A integer argument to declare Age of student
      */
-    public ConstructorChaining(int num1, String str, int num2) {
-        this(num1);                         //This statement is calling the constructor which have single integer argument
+    public ConstructorChaining(int ID, String str) {
+        stuID = ID;
         stuName = str;
-        stuAge = num2;
     }
 
     //Method to print the fields of the object of class StudentData.
     private void printStudentData(){
         System.out.printf("Student ID: %d\n", this.stuID);
         System.out.printf("Student Name: %s\n", this.stuName);
-        System.out.printf("Student Age: %d\n\n", this.stuAge);
     }
 
     public static void main(String[] args){
+
+        //Creating two objects using both constructors
         ConstructorChaining sampleObj1 = new ConstructorChaining(1001);
-        ConstructorChaining sampleObj2 = new ConstructorChaining(1002, "Manish Goyal", 21);
+        ConstructorChaining sampleObj2 = new ConstructorChaining(1002, "Manish Goyal");
         sampleObj1.printStudentData();
         sampleObj2.printStudentData();
     }

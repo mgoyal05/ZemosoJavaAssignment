@@ -61,7 +61,7 @@ public class VampireNumber {
         obj.vampireNumbers = new ArrayList<Integer>();
         obj.isVampire(100, obj.vampireNumbers);
 
-        //Sorting ArrayList
+        //Sorting and printing ArrayList
         Collections.sort(obj.vampireNumbers);
         System.out.println(obj.vampireNumbers);
     }
