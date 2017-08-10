@@ -16,7 +16,7 @@ class Exception1 extends Exception {
 
 class Exception2 extends Exception {
 
-    public Exception2(String sampleString   ) {
+    public Exception2(String sampleString) {
         super(sampleString);
     }
 }
