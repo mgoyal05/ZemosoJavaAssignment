@@ -9,23 +9,23 @@ import java.util.Scanner;
 //User-Define Class inherited from super-class Exception
 class Exception1 extends Exception {
 
-    public Exception1(String s) {
-        super(s);
+    public Exception1(String sampleString) {
+        super(sampleString);
     }
 }
 
 class Exception2 extends Exception {
 
-    public Exception2(String s) {
-        super(s);
+    public Exception2(String sampleString   ) {
+        super(sampleString);
     }
 }
 
 //Non-Default constructor to take string argument when initialising the class
 class Exception3 extends Exception {
 
-    public Exception3(String s) {
-        super(s);
+    public Exception3(String sampleString) {
+        super(sampleString);
     }
 }
 
