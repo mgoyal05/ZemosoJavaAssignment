@@ -44,13 +44,11 @@ public class KYC_Dates {
         //Return No Range if signupDate is in future or first anniversary is after current date
         if(signupDate.after(currDate) || firstStartDate.after(currDate)){
             System.out.println("No Range\n");
-            return;
         }
 
         else {
             PrintDates rangeOfDates = new PrintDates();
-            System.out.println(rangeOfDates.print(signupDate, currDate));
-            return;
+            rangeOfDates.print(signupDate, currDate);
         }
     }
 }

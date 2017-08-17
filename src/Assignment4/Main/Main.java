@@ -1,6 +1,7 @@
 package Assignment4.Main;
 
 import Assignment4.Solution.KYC_Dates;
+import Assignment4.Util.Util;
 
 import java.text.ParseException;
 import java.util.Scanner;
@@ -14,10 +15,13 @@ public class Main {
         System.out.println("Please enter number of inputs");
         int noOfInputs = sc.nextInt();
         sc.nextLine();
+        String stringDate = sc.nextLine();
 
-        for(int i = 0; i < noOfInputs; i++){
-            String s = sc.nextLine();
-            results.range(s);
+        if (!Util.shouldExit(noOfInputs)) {
+            for (int i = 0; i < noOfInputs-1 && !Util.shouldExit(stringDate); i++) {
+                stringDate = sc.nextLine();
+                results.range(stringDate);
+            }
         }
     }
 }
