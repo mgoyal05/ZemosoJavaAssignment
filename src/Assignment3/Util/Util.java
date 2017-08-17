@@ -21,7 +21,7 @@ public class Util {
         return false;
     }
 
-    //It will return false if input has non positive value
+    //It will return true if input has non positive value
     public static boolean showExit(int input){
         return input < 0;
     }

@@ -1,4 +1,4 @@
-package Assignment3.AveragePingTime;
+package Assignment3.Solution;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,29 +13,39 @@ import java.util.regex.Pattern;
  */
 public class PingIP {
 
+    private final List<Double> timeArray;
+    private final Pattern pattern;
+
+    public PingIP(){
+        timeArray = new ArrayList<>();
+        pattern = Pattern.compile("time=(.*) ms");
+    }
+
     /**
      * Method to find the median of some specific no of time
      * @param ipAddress IPAddress to ping
      * @param packets   no of times after process should stop sending packets
      */
-    public void ping (String ipAddress, int packets){
+    public void medianPingTime(String ipAddress, int packets){
         try{
             String command ="ping -c "+ packets + " " + ipAddress;
             Process p = Runtime.getRuntime().exec(command);
 
             //String for storing line output and arrayList for time for each ping
             String line;
-            List<Integer> timeArray = new ArrayList<>();
             BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
             //will continue printing line and fetching time for each until it shows some error
-            while ((line = input.readLine()) != null) {
-                    System.out.println(line);
-                    Matcher matcher = Pattern.compile("time=(.*) ms").matcher(line);
+            try{
+                while ((line = input.readLine()) != null) {
+                    Matcher matcher = pattern.matcher(line);
                     if(matcher.find()){
-                        timeArray.add(Integer.parseInt(matcher.group(1)));
-                        System.out.println(Integer.parseInt(matcher.group(1)));
+                        timeArray.add(Double.parseDouble(matcher.group(1)));
                     }
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
             }
             Collections.sort(timeArray);
             int size = timeArray.size();
@@ -45,9 +55,12 @@ public class PingIP {
                 System.out.println("The median time is : " + (timeArray.get(size/2) + timeArray.get(size / 2 - 1)) / 2);
             else
                 System.out.println("The median time is : " + timeArray.get(size/2));
+            timeArray.clear();
             input.close();
         }
-        catch(Exception e){}
+        catch(Exception e){
+            System.out.println("Invalid IP address!!!, Please Try Again\n"+ e.toString());
+        }
     }
 
 }

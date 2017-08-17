@@ -10,11 +10,13 @@ public class UtilTest {
     @Test
     public void test() throws Exception {
         assertTrue(showExit("eXiT"));
+        assertTrue(showExit(null));
     }
 
     @org.junit.Test
     public void showExit1() throws Exception {
         assertTrue(showExit(-1));
+        assertFalse(showExit(2));
     }
 
 }
