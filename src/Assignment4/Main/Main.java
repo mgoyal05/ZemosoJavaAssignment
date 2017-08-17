@@ -16,8 +16,8 @@ public class Main {
         int noOfInputs = sc.nextInt();
         sc.nextLine();
         String stringDate = sc.nextLine();
-
         if (!Util.shouldExit(noOfInputs)) {
+            results.range(stringDate);
             for (int i = 0; i < noOfInputs-1 && !Util.shouldExit(stringDate); i++) {
                 stringDate = sc.nextLine();
                 results.range(stringDate);
