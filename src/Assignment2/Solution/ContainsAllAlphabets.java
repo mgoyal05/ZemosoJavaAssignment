@@ -1,6 +1,4 @@
-package Assignment2;
-
-import java.util.Scanner;
+package Assignment2.Solution;
 
 /**
  * @author Manish Goyal
@@ -11,10 +9,12 @@ public class ContainsAllAlphabets {
     /**
      * A method to check whether the inputString contains all Alphabets
      * @param inputString A string Argument based on input by user
-     * @return true if contains all Alphabets
      */
-    public static boolean containsAll(String inputString){
-
+    public void containsAll(String inputString){
+        if(inputString == null) {
+            System.out.println("Error!!!");
+            return;
+        }
         //To take into account each alphabet
         int setBit = 0;
 
@@ -28,20 +28,11 @@ public class ContainsAllAlphabets {
         }
 
         //If all alphabets are present, setBit will have all 26 bit position as 1
-        return (Integer.bitCount(setBit) == 26);
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println("Please enter your string :");
-        Scanner sc = new Scanner(System.in);
-        String inputString = sc.nextLine();                         //Example "Pack my box with five dozen liquor jugs."
-
-        if (containsAll(inputString)) {
-            System.out.println("Voila!!! It contains all the Alphabets");
-        }
-        else{
-            System.out.println("Sorry... Please try again");
+        if(Integer.bitCount(setBit) == 26){
+            System.out.println("Voila!!! It contains all the Alphabets.");
+            System.out.println("Please enter your string(or type 'exit' to exit):");
+        } else {
+            System.out.println("Sorry... Please try again(or type 'exit' to exit) :");
         }
     }
 }
