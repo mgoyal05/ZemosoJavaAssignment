@@ -1,22 +1,23 @@
 package Assignment3.Test;
 
-import org.junit.jupiter.api.Test;
+import Assignment3.Util.Util;
+import org.junit.Test;
 
-import static Assignment3.Util.Util.showExit;
 import static org.junit.Assert.*;
 
 public class UtilTest {
-
     @Test
-    public void test() throws Exception {
-        assertTrue(showExit("eXiT"));
-        assertTrue(showExit(null));
+    public void shouldExit() throws Exception {
+        assertTrue(Util.shouldExit("exit"));
+        assertFalse(Util.shouldExit("google.com"));
+        assertFalse(Util.shouldExit(null));
     }
 
-    @org.junit.Test
-    public void showExit1() throws Exception {
-        assertTrue(showExit(-1));
-        assertFalse(showExit(2));
+    @Test
+    public void shouldExit1() throws Exception {
+        assertTrue(Util.shouldExit(0));
+        assertTrue(Util.shouldExit(-1));
+        assertFalse(Util.shouldExit(5));
     }
 
 }

@@ -16,15 +16,15 @@ public class Main {
 
         System.out.println("Please enter th IP Address followed by no. of times you want to ping ");
         IPAddress = sc.next();
-        if(!Util.showExit(IPAddress)) {
+        if(!Util.shouldExit(IPAddress)) {
             count = sc.nextInt();
         }
 
         //will continue to take inputs till user type exit
-        while (!Util.showExit(IPAddress) && !Util.showExit(count)) {
+        while (!Util.shouldExit(IPAddress) && !Util.shouldExit(count)) {
             pingIP.medianPingTime(IPAddress, count);
-            System.out.println("Plz enter th IP Address");
-            if(!Util.showExit(IPAddress)) {
+            System.out.println("Please enter th IP Address");
+            if(!Util.shouldExit(IPAddress)) {
                 IPAddress = sc.next();
                 System.out.println("Please enter the number of times you want to ping");
             }

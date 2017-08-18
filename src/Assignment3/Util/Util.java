@@ -10,19 +10,16 @@ public class Util {
      * @param input A string argument which is checked whether it contains exit
      * @return true if null or exit(case insensitive)
      */
-    public static boolean showExit(String input){
+    public static boolean shouldExit(String input){
         if(input == null){
-            return true;
+            return false;
         }
         input = input.toLowerCase();
-        if(input.contains("exit")){
-            return true;
-        }
-        return false;
+        return input.equals("exit");
     }
 
     //It will return true if input has non positive value
-    public static boolean showExit(int input){
-        return input < 0;
+    public static boolean shouldExit(int input){
+        return input <= 0;
     }
 }
