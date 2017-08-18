@@ -25,13 +25,16 @@ public class PrintDates {
         if(startDate.before(currDate)){
             System.out.print(formatter.format(startDate.getTime()) + " ");
 
+            //If startDate and endDate both are before the current date
             if(endDate.before(currDate)){
                 System.out.println(formatter.format(endDate.getTime()));
             }
             else {
                 System.out.println(formatter.format(currDate.getTime()));
             }
-        }else {
+        }
+        //If startDate is in future than previous anniversary should be taken as reference
+        else {
             startDate.add(Calendar.YEAR, -1);
             endDate.add(Calendar.YEAR,-1);
             System.out.println(formatter.format(startDate.getTime()) + " " + formatter.format(endDate.getTime()));

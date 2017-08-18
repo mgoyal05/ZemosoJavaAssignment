@@ -20,6 +20,6 @@ public class Util {
 
     //It will return true if input has non positive value
     public static boolean shouldExit(int input){
-        return input < 0;
+        return input <= 0;
     }
 }

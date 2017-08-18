@@ -28,9 +28,8 @@ public class KYC_Dates {
     }
 
     /**
-     * Returns range of KYC form dates as a string
+     * Returns range of KYC form dates as a string(If exists unless 'No Range')
      * @param input String parameter which contains dates separated by space
-     * @return String which contains range of the given input(If exists unless 'No Range')
      * @throws ParseException
      */
     public void range(String input) throws ParseException {
@@ -41,12 +40,9 @@ public class KYC_Dates {
         firstStartDate.add(Calendar.YEAR,1);
         firstStartDate.add(Calendar.DATE, -30);
 
-        //Return No Range if signupDate is in future or first anniversary is after current date
         if(signupDate.after(currDate) || firstStartDate.after(currDate)){
             System.out.println("No Range\n");
-        }
-
-        else {
+        }else {
             PrintDates rangeOfDates = new PrintDates();
             rangeOfDates.print(signupDate, currDate);
         }
