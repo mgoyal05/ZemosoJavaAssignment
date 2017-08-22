@@ -14,12 +14,6 @@ import static org.junit.Assert.assertTrue;
  * utility file to perform common tasks throughout the program
  */
 public class UtilsTest {
-    private File[] path;
-
-    @Before
-    public void setUp() throws Exception {
-        path = new File("/home/zemoso/Manish").listFiles();
-    }
 
     @Test
     public void shouldExit() throws Exception {
