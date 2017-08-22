@@ -44,12 +44,10 @@ public class FileList {
      * @param inputRegex Input regex expression to be matched
      */
     public void printList(File[] path , String inputRegex) {
-        //if(!Utils.shouldStop ( path )) {
             pattern = Pattern.compile ( inputRegex );
 
             printListRecursion ( path );
             System.out.println ( printAddress.toString ( ) );
             printAddress.delete ( 0 , printAddress.length ( ) );
-        //}
     }
 }
