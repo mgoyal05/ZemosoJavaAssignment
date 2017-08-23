@@ -1,0 +1,38 @@
+1. java.util.Arrays#asList()                                                                
+      This function returns a 'list' view of the specified array given as argument.
+      
+      Example showing the usage of the method
+         // create an array of strings
+         String array[] = new String[]{"abc","klm","xyz","pqr"};
+         List list1 = Arrays.asList(array);
+         
+      Array and List are two incompatible interfaces but Array want to implement List interface which is done here by using 
+      'Adapter Pattern'
+      Here Adaptee(Array) sends the request to asList(Adapter) to implement the target Interface(List). It creates a private 
+      static class ArrayList which implements all the methods of class 'List' like size(), toArray(), etc. It converted the 
+      Array into List interface which the method wants by having a common shared interface List/Abstract List.
+  
+2.  java.util.Collections#list()
+    public static <T> ArrayList<T> list(Enumeration<T> e)
+      This function Returns an array list containing the elements of the given Enumeration.
+         
+      Example showing the usage of the method
+        Enumeration e = v.elements();
+        // get the list
+        ArrayList arrlist = Collections.list(e);        //Returns an ArrayList containing all elements of enumeration
+      
+      This method act as an interface between two incompatible interfaces Enumeration and ArrayList which is done here by
+      using 'Adapter Pattern'.
+      Here Adaptee(Enumeration) sends the request to list(Adapter) method to implement the target Interface(ArrayList). It
+      creates a local ArrayList and add all elements so now it act exactly like a ArrayList.
+ 
+3.  java.util.Collections#enumeration()
+    public static <T> Enumeration<T> enumeration(final Collection<T> c)
+      This function does the opposite of the previous method i.e. It returns an enumeration of the given collection
+      
+      Example showing the usage of the method
+      List arrlist = new ArrayList();
+      // create Enumeration
+      Enumeration e = Collections.enumeration(arrlist);
+      
+      This method act 
