@@ -35,4 +35,58 @@
       // create Enumeration
       Enumeration e = Collections.enumeration(arrlist);
       
-      This method act 
+      This method also uses 'Adapter Pattern' and act as an interface between Enumeration and ArrayList.
+      It implements all the methods of target interface(Enumeration) so that the user can use it to access
+      Adaptee(ArrayList) as target(Enumeration) interface.
+      
+4.  java.io.InputStreamReader(InputStream) (returns a Reader)
+    public InputStreamReader(InputStream in)
+      This function creates a InputStreamReader which uses Default charset
+      
+      Example showing the usage of the method
+      InputStreamReader in_strm = new InputStreamReader(geek);
+      int temp;
+         while ((temp = sourceStream.read()) != -1)
+            System.out.println((char)temp);
+            
+      Method
+        public InputStreamReader(InputStream in) {
+        super(in);
+        try {
+            sd = StreamDecoder.forInputStreamReader(in, this, (String)null); // ## check lock object
+        } catch (UnsupportedEncodingException e) {
+            // The default encoding should always be available
+            throw new Error(e);
+        }
+    ``}
+    
+      This method act as an interface between StreamDecoder and Reader, hence uses 'Adapter Pattern'.
+      Here InputStreamReader act as an Adapter and it implement three methods(read, ready and close) common to both of 
+      them. Adapter translates the request into Adaptee(StreamDecoder) calls so that client should get the result in Target
+      interface(Reader) class format.
+
+5.  java.io.OutputStreamWriter(OutputStream) (returns a Writer)
+      This function creates a OutputStreamReader which uses Default charset.
+      
+      Method
+        public OutputStreamWriter(OutputStream out) {
+        super(out);
+        try {
+            se = StreamEncoder.forOutputStreamWriter(out, this, (String)null);
+        } catch (UnsupportedEncodingException e) {
+            throw new Error(e);
+        }
+      }
+      
+      Example showing the usage of the method
+        OutputStream output = new FileOutputStream ("data/data.bin");
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(output);
+        This method act as an interface between StreamEncoder and Writer, hence uses 'Adapter Pattern'.
+        Here OutputStreamWriter act as an Adapter and it implements method(flush, close, write, etc) common to both of them.
+        Adapter translates the request into Adaptee(StreamEncoder) calls so that client should get the result in Target
+        interface(Writer) class format.
+      
+6.  javax.xml.bind.annotation.adapters.XmlAdapter#marshal() and #unmarshal()
+      
+  
+        
