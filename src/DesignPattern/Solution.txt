@@ -9,8 +9,8 @@
      Array and List are two incompatible interfaces but Array want to implement List interface which is done here by using 
      'Adapter Pattern'
      The Adapter Pattern converts the interface of a class(Array) into another interface(List) the clients expect. 'asList'
-     method creates a private static class ArrayList which implements all the methods required for Adaptee to function like a
-    'List' like size(), toArray(), etc. They both have a common shared interface List/Abstract List.
+     method creates a private static class ArrayList which implements all the methods required for Adaptee to function like 
+     a 'List' like size(), toArray(), etc. They both have a common shared interface List/Abstract List.
   
 2.  java.util.Collections#list()
     public static <T> ArrayList<T> list(Enumeration<T> e)
@@ -91,7 +91,7 @@
 6.  javax.xml.bind.annotation.adapters.XmlAdapter#marshal() and #unmarshal()
       public abstract BoundType unmarshal(ValueType v) throws Exception;
       
-      This function takes argument of type 'ValueType' and converts into 'BoundType'
+      This function takes argument of type 'ValueType' and converts into 'BoundType' and vice versa for marshal.
       
       Example showing the usage of method
         public byte[] unmarshal(String s) {
@@ -100,4 +100,6 @@
         }
         
       This method also uses 'Adapter Pattern' and act as an interface between ValueType and BoundType.
-      Here unmarshal and marshal act as an Adapter(Abstract method) for 
+      Here unmarshal and marshal act as an Adapter(Abstract method) for Class 'ValueType' and 'BoundType'. So the class
+      which uses this method defines in such a way that the input argument is changed from ValueType to BoundType and vice
+      versa. For marshal BoundType act as an Adaptee and target is ValueType.
