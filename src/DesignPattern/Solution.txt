@@ -6,11 +6,11 @@
          String array[] = new String[]{"abc","klm","xyz","pqr"};
          List list1 = Arrays.asList(array);
          
-      Array and List are two incompatible interfaces but Array want to implement List interface which is done here by using 
-      'Adapter Pattern'
-      Here Adaptee(Array) sends the request to asList(Adapter) to implement the target Interface(List). It creates a private 
-      static class ArrayList which implements all the methods of class 'List' like size(), toArray(), etc. It converted the 
-      Array into List interface which the method wants by having a common shared interface List/Abstract List.
+     Array and List are two incompatible interfaces but Array want to implement List interface which is done here by using 
+     'Adapter Pattern'
+     The Adapter Pattern converts the interface of a class(Array) into another interface(List) the clients expect. 'asList'
+     method creates a private static class ArrayList which implements all the methods required for Adaptee to function like a
+    'List' like size(), toArray(), etc. They both have a common shared interface List/Abstract List.
   
 2.  java.util.Collections#list()
     public static <T> ArrayList<T> list(Enumeration<T> e)
@@ -23,8 +23,8 @@
       
       This method act as an interface between two incompatible interfaces Enumeration and ArrayList which is done here by
       using 'Adapter Pattern'.
-      Here Adaptee(Enumeration) sends the request to list(Adapter) method to implement the target Interface(ArrayList). It
-      creates a local ArrayList and add all elements so now it act exactly like a ArrayList.
+      Here Adaptee(Enumeration) sends the request to list(Adapter) method to implement the target Interface(ArrayList). 
+      'list' method creates a local ArrayList and add all elements to it so now it act exactly like a ArrayList.
  
 3.  java.util.Collections#enumeration()
     public static <T> Enumeration<T> enumeration(final Collection<T> c)
@@ -44,10 +44,10 @@
       This function creates a InputStreamReader which uses Default charset
       
       Example showing the usage of the method
-      InputStreamReader in_strm = new InputStreamReader(geek);
-      int temp;
-         while ((temp = sourceStream.read()) != -1)
-            System.out.println((char)temp);
+        InputStreamReader in_strm = new InputStreamReader(geek);
+        int temp;
+           while ((temp = sourceStream.read()) != -1)
+              System.out.println((char)temp);
             
       Method
         public InputStreamReader(InputStream in) {
@@ -58,7 +58,7 @@
             // The default encoding should always be available
             throw new Error(e);
         }
-    ``}
+      }
     
       This method act as an interface between StreamDecoder and Reader, hence uses 'Adapter Pattern'.
       Here InputStreamReader act as an Adapter and it implement three methods(read, ready and close) common to both of 
@@ -82,11 +82,22 @@
         OutputStream output = new FileOutputStream ("data/data.bin");
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(output);
         This method act as an interface between StreamEncoder and Writer, hence uses 'Adapter Pattern'.
-        Here OutputStreamWriter act as an Adapter and it implements method(flush, close, write, etc) common to both of them.
-        Adapter translates the request into Adaptee(StreamEncoder) calls so that client should get the result in Target
-        interface(Writer) class format.
+        
+      This method also uses 'Adapter Pattern' and act as an interface between StreamEncoder and Writer.
+      Here OutputStreamWriter act as an Adapter and it implements method(flush, close, write, etc) common to both of them.
+      Adapter translates the request into Adaptee(StreamEncoder) calls so that client should get the result in Target
+      interface(Writer) class format.
       
 6.  javax.xml.bind.annotation.adapters.XmlAdapter#marshal() and #unmarshal()
+      public abstract BoundType unmarshal(ValueType v) throws Exception;
       
-  
+      This function takes argument of type 'ValueType' and converts into 'BoundType'
+      
+      Example showing the usage of method
+        public byte[] unmarshal(String s) {
+         if(s==null)     return null;
+         return DatatypeConverter.parseHexBinary(s);
+        }
         
+      This method also uses 'Adapter Pattern' and act as an interface between ValueType and BoundType.
+      Here unmarshal and marshal act as an Adapter(Abstract method) for 
